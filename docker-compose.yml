@@ -1,0 +1,33 @@
+services:
+  api:
+    build: ./api
+    container_name: jobportal-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    env_file: .env.prod
+    environment:
+      - ML_SERVICE_URL=http://ml-service:8000
+    depends_on:
+      - ml-service
+
+  ml-service:
+    build: ./ml-service
+    container_name: jobportal-ml
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file: .env.prod
+
+  web:
+    build:
+      context: ./web
+      args:
+        NEXT_PUBLIC_API_URL: http://31.97.186.48/api/v1
+        NEXT_PUBLIC_APP_NAME: JobPortal
+    container_name: jobportal-web
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    depends_on:
+      - api

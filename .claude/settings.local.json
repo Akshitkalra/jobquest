@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sL \"https://start.spring.io/starter.zip?type=maven-project&language=java&bootVersion=3.5.0&baseDir=api&groupId=com.jobportal&artifactId=api&name=JobPortalApi&description=Job+Portal+API&packageName=com.jobportal.api&javaVersion=21&dependencies=web,security,data-jpa,validation,flyway,postgresql,lombok,devtools\" -o api.zip)",
+      "Bash(unzip -o api.zip)",
+      "Bash(npx --yes create-next-app@latest web --typescript --tailwind --app --src-dir --eslint --import-alias \"@/*\" --use-pnpm --no-turbopack --yes)",
+      "Bash(npx --yes create-next-app@latest web --typescript --tailwind --app --src-dir --eslint --import-alias \"@/*\" --use-npm --no-turbopack --yes)",
+      "Bash(npm install axios @tanstack/react-query zustand zod react-hook-form @hookform/resolvers lucide-react next-themes js-cookie)",
+      "Bash(npx shadcn@latest init -d --yes)",
+      "Bash(npx shadcn@latest add button card input label select textarea badge avatar tabs dialog dropdown-menu sheet table toast separator form -y)",
+      "Bash(npx shadcn@latest add sonner -y)",
+      "Bash(npx shadcn@latest add button card input label badge avatar dialog dropdown-menu sheet separator -y)"
+    ]
+  }
+}
