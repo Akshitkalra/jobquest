@@ -112,7 +112,8 @@ public class JwtTokenProvider {
         cookie.setSecure(secureCookie);
         cookie.setPath("/api/v1/auth");
         cookie.setMaxAge((int) (refreshExpiration / 1000));
-        cookie.setAttribute("SameSite", "Lax");
+        // cookie.setAttribute("SameSite", "Lax");
+        cookie.setAttribute("SameSite", secureCookie ? "None" : "Lax");
         return cookie;
     }
 
@@ -126,7 +127,8 @@ public class JwtTokenProvider {
         cookie.setSecure(secureCookie);
         cookie.setPath("/api/v1/auth");
         cookie.setMaxAge(0);
-        cookie.setAttribute("SameSite", "Lax");
+        // cookie.setAttribute("SameSite", "Lax");
+        cookie.setAttribute("SameSite", secureCookie ? "None" : "Lax");
         return cookie;
     }
 }
